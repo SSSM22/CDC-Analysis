@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Ranking</title>
+    <style>
+        /* Styling for the container of the table */
+.table-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Styling for the table itself */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Styling for table header */
+.table-container th,
+.table-container td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  font-size: 18px; /* Increase or decrease as desired */
+}
+
+/* Styling for table header cells */
+.table-container th {
+  background-color: #3498db; /* Header background color */
+  color: white; /* Header text color */
+  font-weight: bold;
+}
+
+/* Optional: Add alternating row colors */
+.table-container tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Even row background color */
+}
+
+/* Optional: Add a hover effect to rows */
+.table-container tbody tr:hover {
+  background-color: #e0e0e0; /* Hovered row background color */
+}
+
+    </style>
+</head>
+<body>
+    <h1 style="color:blue;text-align:center;">Vardhaman Student Rankings</h1>
+   <form >
+    
+    Roll number:<input type="text" placeholder="Roll_Number" name="roll">
+
+    orderby:<select name="branch" id="cars">
+        <option value="IT">IT</option>
+        <option value="CSE">CSE</option>
+        <option value="CSM">CSM</option>
+        <option value="EEE">EEE</option>
+        <option value="MECH">MECH</option>
+        <option value="CIVIL">CIVIL</option>
+        <option value="ECE">ECE</option>
+        <option value="AIML">AIML</option>
+        <option value="AIDS">AIDS</option>
+      </select>
+    <input type="Submit">
+   </form>
+   
+   
+   
+    <div class="table-container"> 
+    <table>
+        
+        <tr>
+            <th>Roll_Number</th>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>HackerRank_ID</th>
+            <th>Algorithms</th>
+            <th>CodeChef_ID</th>
+            <th>No.of Problems</th>
+            <th>Problems*10</th>
+            <th>CodeForce_ID</th>
+            <th>No.of Problems</th>
+            <th>Problems*10</th>
+            <th>Overall Score</th>
+            
+        </tr>
+    <tb>    
+    
+        {% for student in students %}
+            <tr>
+                <td>{{ student['Roll_Number'] }}</td>
+                <td>{{ student['Name'] }}</td>
+                <td>{{ student['Branch'] }}</td>
+                <td>{{ student['HackerRank_HR'] }}</td>
+                <td>{{ student['HackerRank_Algo'] }}</td>
+                <td>{{ student['CodeChef_CC'] }}</td>
+                <td>{{ student['CC_problems'] }}</td>
+                <td>{{ student['CC_score'] }}</td>
+                <td>{{ student['Codeforces_CF'] }}</td>
+                <td>{{ student['CF_problems'] }}</td>
+                <td>{{ student['CF_score'] }}</td>
+                <td>{{ student['Overall_Score'] }}</td>
+
+                
+            </tr>
+        {% endfor %}
+        </tb>
+    </table>
+</div> 
+
+
+
+</body>
+</html>
